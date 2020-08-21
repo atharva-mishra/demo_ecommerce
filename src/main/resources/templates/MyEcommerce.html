@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="html://thymeleaf.org">
+<!--Bootstrap CDN Link-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Aguafina Script' rel='stylesheet' >
+<link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <title>Document</title>
+
+    <style type="text/css">
+        .img-jmbo{
+        background-image: url('...');
+        background-size:100% 220%
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="page-header p-3 mb-2 bg-dark text-white">
+        <a th:href="@{/www.shopping.com/registration}" target="_blank" type="button" class="btn btn-link">register</a>
+        <a th:href="@{/shopping/login}" target="_blank"type="button" class="btn btn-link" >login</a>
+    </div>
+<div>
+    <div class="jumbotron img-jmbo">
+        <h3 style="font-family: 'Aguafina Script';font-size: 35px;" class="text-white">Happy Shopping:)</h3>
+        <br>
+        <!--Searching inside Jumbotron-->
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="What do you want!" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+         </form>
+    </div>
+</div>
+</div>
+<!--Creating Grid Using Boot-Strap-->
+<br>
+<br>
+<div class="container" >
+<div class="row">
+    <div class="col-xl-3" th:each="product, istat : ${ListOfProducts}">
+        <div class="card" style="width: 15rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <p class="card-title" th:text = "${product.productName}"></p>
+                <hr>
+                <p class="card-text" th:text = "${product.productCost}"></p>
+                <a href="#" class="btn btn-primary">AddToCard</a>
+            </div>
+        </div>
+        <span th:if="${istat.count % 4 == 0}"><br></span>
+     </div>
+</div>
+</div>
+<br>
+<br>
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+

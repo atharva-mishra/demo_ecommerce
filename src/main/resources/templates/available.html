@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="html://thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>AvailableProducts</title>
+</head>
+
+<body>
+<div class="container my-2">
+    <h1>Available Products</h1>
+    <hr>
+    <!--'@' symbol is reference path of application-->
+    <a th:href="@{/ecommerce/addNewProductForm}" target="_blank" class="btn-primary btn-sm mb-3"> Add Products </a>
+    <br>
+    <br>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr class="table-active">
+            <!--<th>#ProductID</th>-->
+            <th>ProductName</th>
+            <th>ProductCost</th>
+            <th>QuantityAvailable</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <!--<td th:text="${product.productId}"></td>-->
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.productCost}"></td>
+            <td th:text="${product.quantityAvailable}"></td>
+            <td> <a class="btn btn-primary">AddToCart</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${totalPages > 1}">
+        <div class = "row col-sm-10">
+            <div class = "col-sm-2">
+                Total Rows: [${totalItems}]
+            </div>
+            <div class = "col-sm-1">
+                <span th:each="i:${#numbers.sequence(1,totalPages)}">
+                    <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+                    <span th:unless="${currentPage != i}">[[$i]]</span> &nbsb; &nbsp;
+                </span>
+            </div>
+            <div class = "col-sm-1"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!--<td><form action="#" th:action="@{/updateQty/{id}(id=$(product.ProductId))}" th:object="${Product method="post">
+                <input type="text" th:field="*{quantityAvailable}">
+                <button type="Submit" class="btn btn-light"> update </button>
+            </form></td>-->
+

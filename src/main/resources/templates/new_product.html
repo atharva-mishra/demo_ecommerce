@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="html://thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>addProduct</title>
+</head>
+
+<body>
+<h1 align="center">Product Management System</h1>
+<hr>
+<h3>Add Product</h3>
+<form action="#" th:action="@{/addProduct}" th:object="${Product}" method="POST">
+
+    <input type="text" th:field="*{productId}"
+           placeholder="Product Id" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{productName}"
+           placeholder="Product Name" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{productCost}"
+           placeholder="Product Cost" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{quantityAvailable}"
+           placeholder="Quantity Available" class="form-control mb-4 col-4">
+
+    <button type="Submit" class="btn btn-primary">Save Product</button>
+</form>
+</body>
+</html>
